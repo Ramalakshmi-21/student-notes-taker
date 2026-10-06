@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Notes Taker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Student Notes Taker</h1>
+      <p>Organize your study notes in one place.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="note-form">
+      <h2 id="formTitle">Add New Note</h2>
+      <input type="hidden" id="editId">
+
+      <label for="title">Note Title</label>
+      <input id="title" type="text" placeholder="Enter note title">
+
+      <label for="subject">Subject</label>
+      <input id="subject" type="text" placeholder="e.g. Java, OS, DBMS">
+
+      <label for="content">Note</label>
+      <textarea id="content" rows="6" placeholder="Write your note here..."></textarea>
+
+      <div class="form-actions">
+        <button id="saveBtn" onclick="saveNote()">Add Note</button>
+        <button class="secondary" id="cancelBtn" onclick="resetForm()" hidden>Cancel</button>
+      </div>
+    </section>
+
+    <section class="notes-section">
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="Search notes..." oninput="renderNotes()">
+        <select id="filter" onchange="renderNotes()">
+          <option value="all">All Notes</option>
+          <option value="important">Important</option>
+        </select>
+      </div>
+
+      <div id="notesList" class="notes-grid"></div>
+      <p id="emptyMessage" class="empty">No notes found.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
